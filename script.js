@@ -25,10 +25,19 @@ function decryptionCheck() {
 function clicked() {
     inputValue = message.value;
     keyValue = parseInt(key.value);
-    i = 0;
 
     chars = inputValue.split('');
 
+    i = 0;
+    chars.forEach(char => {
+        if(char.toUpperCase(i).charCodeAt(0) > 90 || char.toUpperCase(i).charCodeAt(0) < 65)
+        {
+            chars.splice(i, 1);
+        }
+        i++;
+    })
+
+    i = 0;
     if(encryption.checked) {
         chars.forEach(char => {
         letter = char.toUpperCase(i).charCodeAt(0);
@@ -39,7 +48,7 @@ function clicked() {
         }
         chars[i] = String.fromCharCode(letter);
         i++;
-        });
+        })
     }
     else
     {
