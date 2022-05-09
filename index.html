@@ -14,24 +14,34 @@
 
         <h3>Input the message here:</h3>
         <div>
-            <input id="message" type="text" width="450px" font-size="25px">
+            <input id="message" type="text" font-size="25px" margin-top="30px">
         </div>
-        
-        <h3>Input the key here:</h3>
+
+        <h3>Choose what to use as a key and enter it:</h3>   
+        <div style="margin-bottom: 20px">
+            <label>Number(1-26):</label>
+            <input type="checkbox" id="number" style="margin-right: 30px" onchange="keyCheck(0)" checked>
+            <input type="number" id="key" min="1" max="26" oninput="validity.valid||(value='');"> 
+        </div>
+
         <div>
-            <input type="number" id="key" min="1" max="26" oninput="validity.valid||(value='');" width="50px" height="50px">
+            <label>Word(1-26 characters):</label>
+            <input type="checkbox" id="word" style="margin-right: 80px" onchange="keyCheck(1)">
+            <input type="text" id="key" oninput="validity.valid||(value='');">
         </div>
         
         <h3>Choose between encryption and decryption:</h3>
         <div>
             <label>Encryption:</label>
-            <input type="checkbox" id="encryption" name="encryption" onchange="encryptionCheck()" checked>
+            <input type="checkbox" id="encryption" onchange="cryptionCheck(0)" checked>
             <label>Decryption:</label>
-            <input type="checkbox" id="decryption" name="decryption" onchange="decryptionCheck()">
+            <input type="checkbox" id="decryption" onchange="cryptionCheck(1)">
         </div>
 
         <h3>The output can be seen here:</h3>
-        <textarea id="output" readonly></textarea>
+        <div>
+            <input type="text" id="output" readonly>
+        </div>
 
         <div>
             <button onclick="clicked()">Start</button>

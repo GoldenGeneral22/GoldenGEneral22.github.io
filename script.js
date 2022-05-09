@@ -1,24 +1,33 @@
 const message = document.getElementById('message');
+const number = document.getElementById('number');
+const word = document.getElementById('word');
 const key = document.getElementById('key');
-const output = document.getElementById('output');
 const encryption = document.getElementById('encryption');
 const decryption = document.getElementById('decryption');
+const output = document.getElementById('output');
+modeMultiplier = 1;
 
-function encryptionCheck() {
-    if(decryption.checked) {
-        decryption.checked = false;
+function keyCheck(cases) {
+    if(cases == 0) {
+        number.checked = true;
+        word.checked = false;
     }
     else {
-        encryption.checked = true;
+        number.checked = false;
+        word.checked = true;
     }
 }
 
-function decryptionCheck() {
-    if(encryption.checked) {
-        encryption.checked = false;
+function cryptionCheck(cases) {
+    if(cases == 0) {
+        encryption.checked = true;
+        decryption.checked = false;
+        modeMultiplier = 1;
     }
     else {
+        encryption.checked = false;
         decryption.checked = true;
+        modeMultiplier = -1;
     }
 }
 
@@ -38,31 +47,16 @@ function clicked() {
     })
 
     i = 0;
-    if(encryption.checked) {
-        chars.forEach(char => {
+    chars.forEach(char => {
         letter = char.toUpperCase(i).charCodeAt(0);
-        letter += keyValue;
+        letter += keyValue * modeMultiplier;
         if(letter > 90)
         {
-            letter -= 26;
+            letter -= 26 * modeMultiplier;
         }
         chars[i] = String.fromCharCode(letter);
         i++;
-        })
-    }
-    else
-    {
-        chars.forEach(char => {
-            letter = char.toUpperCase(i).charCodeAt(0);
-            letter -= keyValue;
-            if(letter < 65)
-            {
-                letter += 26;
-            }
-            chars[i] = String.fromCharCode(letter);
-            i++;
-        });
-    }
+    })
 
     output.readOnly = false;
     output.value = chars.join('');
