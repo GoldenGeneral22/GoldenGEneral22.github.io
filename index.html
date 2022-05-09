@@ -14,20 +14,20 @@
 
         <h3>Input the message here:</h3>
         <div>
-            <input id="message" type="text" font-size="25px" margin-top="30px">
+            <input id="message" type="text" font-size="25px" margin-top="30px" onkeypress="return /[a-z]/i.test(event.key)">
         </div>
 
         <h3>Choose what to use as a key and enter it:</h3>   
         <div style="margin-bottom: 20px">
             <label>Number(1-26):</label>
             <input type="checkbox" id="number" style="margin-right: 30px" onchange="keyCheck(0)" checked>
-            <input type="number" id="key" min="1" max="26" oninput="validity.valid||(value='');"> 
+            <input type="number" id="keyNumber" min="1" max="26" oninput="validity.valid||(value='');"> 
         </div>
 
         <div>
-            <label>Word(1-26 characters):</label>
+            <label>Word(1-26 letters):</label>
             <input type="checkbox" id="word" style="margin-right: 80px" onchange="keyCheck(1)">
-            <input type="text" id="key" oninput="validity.valid||(value='');">
+            <input type="text" id="keyWord" onkeypress="return /[a-z]/i.test(event.key)">
         </div>
         
         <h3>Choose between encryption and decryption:</h3>
@@ -42,9 +42,12 @@
         <div>
             <input type="text" id="output" readonly>
         </div>
-
         <div>
-            <button onclick="clicked()">Start</button>
+            <button class="btn copy" onclick="copied()">copy to clipboard</button>
+        </div>
+        
+        <div>
+            <button class="btn start" onclick="clicked()">Start</button>
         </div>
     </body>
     <script src="script.js" charset="utf-8"></script>
