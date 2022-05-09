@@ -2,12 +2,7 @@ h1{
     text-align: center;
     color: white;
     font-size: 50px;
-}
-
-h2{
-    text-align: center;
-    color: white;
-    font-size: 40px;
+    margin-bottom: 5px;
 }
 
 h3{
@@ -39,6 +34,7 @@ textarea{
     color: white;
     font-size: 25px;
     margin-top: 5px;
+    text-align: center;
 }
 
 button{
@@ -51,3 +47,40 @@ button{
 div{
     text-align: center;
 }
+
+body{
+    background-color: rgb(70, 70, 70);
+}
+
+input[type=checkbox] {
+    transform: scale(2);
+    margin-right: 30px;
+}
+
+input[type=number] {
+    transform: scale(1.75);
+    width: 40px;
+}
+
+input[type=text] {
+    transform: scale(1.75);
+    text-align: center;
+}
+
+a:link {
+    color: rgb(180, 230, 200);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: rgb(180, 230, 200);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: rgb(103, 230, 200);
+    background-color: transparent;
+    text-decoration: underline;
+  }

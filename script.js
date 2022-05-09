@@ -68,9 +68,3 @@ function clicked() {
     output.value = chars.join('');
     output.readOnly = true;
 }
-
-function intToChar(int){
-    const code = 'A'.charCodeAt(0);
-    console.log(code);
-    return String.fromCharCode(code + int);
-}
