@@ -42,7 +42,7 @@
 
         <h3>The output can be seen here:</h3>
         <div>
-            <input type="text" id="output" readonly>
+            <input type="text" id="output" onkeypress="return /[a-z]/i.test(event.key)" readonly>
         </div>
         <div>
             <button class="btn copy" onclick="copied()">copy to clipboard</button>

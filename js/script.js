@@ -41,6 +41,10 @@ function clicked() {
     inputValue = message.value;
     keyValue = parseInt(keyNumber.value);
 
+    if(inputValue == null || keyValue == null) {
+        return;
+    }
+
     chars = inputValue.split('');
 
     i = 0;
